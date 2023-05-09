@@ -9,8 +9,8 @@ public class AppStarter {
         private static final Logger log = Logger.getLogger(AppStarter.class.getName());
 
         public static void main(String[] args) {
-            log.info("Started main..");
+            log.info("Started my main..");
             SpringApplication.run(AppStarter.class,args);
-            log.info("Finished main..");
+            log.info("Finished my main..");
         }
     }
