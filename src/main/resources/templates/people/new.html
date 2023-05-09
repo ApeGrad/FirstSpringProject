@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>New Person</title>
 </head>
-<body>
+<body style="background-color: azure">
 
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="fullName"> Введите ФИО: </label>
@@ -15,9 +15,11 @@
     <label for="yearOfBirth"> Введите год рождения</label>
     <input type="text" th:field="*{yearOfBirth}" id="yearOfBirth"/>
   <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Age error</div>
+
     </br>
     <input type="submit" value="Создать!">
 </form>
 
 </body>
+
 </html>
