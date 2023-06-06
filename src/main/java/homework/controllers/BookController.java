@@ -12,9 +12,7 @@ import homework.service.PeopleService;
 
 import javax.validation.Valid;
 
-/**
- * @author Neil Alishev
- */
+
 @Controller
 @RequestMapping("/books")
 public class BookController {
