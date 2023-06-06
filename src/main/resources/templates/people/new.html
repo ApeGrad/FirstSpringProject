@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>New Person</title>
+    <title>New person</title>
 </head>
-<body style="background-color: azure">
+<body>
 
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
-    <label for="fullName"> Введите ФИО: </label>
+    <label for="fullName">Введите ФИО: </label>
     <input type="text" th:field="*{fullName}" id="fullName"/>
-    <div style="color: red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Name error</div>
-
-    <label for="yearOfBirth"> Введите год рождения</label>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Full Name Error</div>
+    <br/>
+    <label for="yearOfBirth">Введите год рождения: </label>
     <input type="text" th:field="*{yearOfBirth}" id="yearOfBirth"/>
-  <div style="color: red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Age error</div>
-
-    </br>
-    <input type="submit" value="Создать!">
+    <div style="color:red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Year of birth Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
 </form>
 
 </body>
-
 </html>

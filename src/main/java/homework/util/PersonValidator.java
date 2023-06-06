@@ -1,20 +1,23 @@
 package homework.util;
 
-import homework.dao.PersonDao;
-import homework.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+import homework.models.Person;
+import homework.service.PeopleService;
 
+/**
+ * @author Neil Alishev
+ */
 @Component
 public class PersonValidator implements Validator {
 
-    private final PersonDao personDAO;
+    private final PeopleService peopleService;
 
     @Autowired
-    public PersonValidator(PersonDao personDAO) {
-        this.personDAO = personDAO;
+    public PersonValidator(PeopleService peopleService) {
+        this.peopleService = peopleService;
     }
 
     @Override
@@ -26,8 +29,7 @@ public class PersonValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if (personDAO.getPersonByFullName(person.getFullName()).isPresent())
-            errors.rejectValue("name", "", "Человек с таким ФИО уже существует");
+        if (peopleService.getPersonByFullName(person.getFullName()).isPresent())
+            errors.rejectValue("fullName", "", "Человек с таким ФИО уже существует");
     }
-
 }
