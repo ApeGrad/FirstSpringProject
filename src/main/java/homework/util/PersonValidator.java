@@ -7,9 +7,6 @@ import org.springframework.validation.Validator;
 import homework.models.Person;
 import homework.service.PeopleService;
 
-/**
- * @author Neil Alishev
- */
 @Component
 public class PersonValidator implements Validator {
 
